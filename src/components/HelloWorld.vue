@@ -2,22 +2,19 @@
   <div class="hello">
     <h1>{{ msg }}</h1> 
     <h2>{{ test }}</h2>       
-    <test></test>
-    <foot></foot>
+    <test></test>  
   </div>
 </template>
 
 <script>
 import Test from '@/components/Test.vue';
-import Foot from '@/components/Footer.vue';
 export default {  
   props: {
     msg: String,
     test: String
   },
   components:{    
-    Test,
-    Foot
+    Test   
   }
 };
 </script>

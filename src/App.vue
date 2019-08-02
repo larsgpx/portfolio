@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav" class="left-navbar">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">Nosotros</router-link> | 
-      <router-link to="/contact">Contáctanos</router-link>
-    </div>
-    <div class="content-side">
-      <router-view />
-    </div>
+    <v-container fluid class="no-padding">
+      <v-layout>
+        <v-flex xs3 id="nav" class="left-navbar">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">Nosotros</router-link> | 
+        <router-link to="/contact">Contáctanos</router-link>
+      </v-flex>
+      <v-flex xs9 class="content-side">        
+          <router-view />               
+      </v-flex>    
+      </v-layout>
+    </v-container>
     
+    <foot></foot>
   </div>
 </template>
-
+<script>
+import Foot from '@/components/Footer.vue';
+export default {
+  components:{
+    Foot
+  }
+}
+</script>
 <style lang="scss">
 @import "./assets/sass/main.scss";
 #app {
