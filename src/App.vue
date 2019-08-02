@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" class="left-navbar">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">Nosotros</router-link> | 
       <router-link to="/contact">Contáctanos</router-link>
     </div>
-    <router-view />
+    <div class="content-side">
+      <router-view />
+    </div>
+    
   </div>
 </template>
 
 <style lang="scss">
+@import "./assets/sass/main.scss";
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
