@@ -1,11 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito+Sans&display=swap');
 @import "colors";
+@import "transitions";
+@import "nav";
 
+body{
+    background-color:$color-marron-dark;
+    color:white;
+}
+.v-footer{
+    background: $color-negro!important;
+    color:white!important;
+    padding:15px!important;
+    border-radius: 0px!important;
+}
+h1,h2,h3,h4,h5,h6{
+font-family: 'Lato', sans-serif;
+letter-spacing: 1px;
+}
+p,a,b{
+    font-family: 'Nunito Sans', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
 .left-navbar{
-    background-color:$color-negro;
+    background-color: $color-negro;
+    -webkit-box-shadow: inset -3px 0px 8px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset -3px 0px 8px -3px rgba(0,0,0,0.75);
+    box-shadow: inset -3px 0px 8px -3px rgba(0,0,0,0.75);
+    .js-container{
+        text-align: center;
+        padding: 10px;
+        h1{
+        color:$color-verde;
+        font-size: 4rem;
+        text-transform: uppercase;
+        padding: 10px;
+        }
+        h6{
+            font-size:1.5rem;
+            color:white;
+            font-weight: lighter;
+        }
+    }
 }
 .content-side{
     background:$color-gris;
 }
 .no-padding{
     padding:0!important;
+}
+
+.banner-lg{
+    position: relative;
+    .banner-letters{
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+
+        text-align: right;    
+        h1{
+            color:$color-verde;
+            font-size: 3.6rem;
+            font-weight: lighter;
+        }
+        h2{
+            color: white;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+    }
+}
+
+.info-text{
+    text-align: left;
+    padding: 10px;
+    h4{
+        color:$color-verde;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    p{
+        padding-top: 25px;
+        color:white;                
+    }
 }

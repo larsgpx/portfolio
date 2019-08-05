@@ -1,7 +1,7 @@
 <template>
-    <v-card height="150">
-        <v-footer padless
-        absolute
+    <v-card>
+        <v-footer
+        
         class="font-weight-medium"
         >
             <v-flex

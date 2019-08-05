@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Vue + webpack" />
-    <p>tre</p>
+  <div class="home">        
+    <!-- <img src="../assets/banner-laptop.jpg" alt="" srcset=""> -->
+    <Banner image="banner-laptop.jpg" /> 
+    <who-i-am></who-i-am> 
   </div>
 </template>
 
 <script>
 // @ es un alias para /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Banner from "./Home/Banner.vue";
+import WhoIAm from "./Home/WhoIAm.vue";
 export default {
   name: "home",
   components: {
-    HelloWorld
+    Banner,
+    WhoIAm
   }
 };
 </script>
