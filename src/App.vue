@@ -14,7 +14,7 @@
       </v-flex>
       <v-flex sm10 xs12 class="content-side">        
           <transition name="fade">
-            <router-view />               
+            <router-view class="dark-bg" />               
           </transition>
       </v-flex>    
       </v-layout>

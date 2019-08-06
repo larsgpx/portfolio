@@ -3,9 +3,40 @@
 @import "transitions";
 @import "nav";
 
-body{
+
+@for $i from 1 through 5 {
+    .space-#{$i} {
+      padding: $i+00%;
+      width:100%;
+    }
+  }
+
+body,.dark-bg{
     background-color:$color-marron-dark;
     color:white;
+}
+
+.developer-portfolio{
+    h4{
+        padding-top:15px;
+        color: $color-verde;
+        font-size: 24px;
+    }
+    h5{
+        color:white;
+        font-size: 18px;
+        padding-top:5px;
+    }
+}
+
+.text-left{
+    text-align: left!important;
+}
+.text-right{
+    text-align: right!important;
+}
+.text-center{
+    text-align: center!important;
 }
 .v-footer{
     background: $color-negro!important;

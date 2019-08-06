@@ -13,7 +13,7 @@
         color:#42b983;
         text-transform: uppercase;
         font-weight: 600;
-        margin-right: -50%;
+        margin-right: -35%;
     }
     .align-end{
         color:white;
@@ -35,6 +35,13 @@
     }
 }
 
+
+//Pantallas retina
+@media (min-width: 1904px){
+    .container{
+        padding:3%!important;
+    }
+}
 
 //condiciones especiales solo para desktop
 @media screen and (min-width:901px){
