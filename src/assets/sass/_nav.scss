@@ -3,7 +3,11 @@
     margin-top: 0px;
     max-height: calc(100% - 0px);
     transform: translateX(0px);
-    width: 300px;
+    width: 20%;
+    position: fixed;
+    left: 0;
+    z-index: 999999;
+    height: 100%;
 }
 
 .bg-trans{

@@ -116,3 +116,24 @@ p,a,b{
         color:white;                
     }
 }
+
+
+.v-expansion-panel-header{
+    font-size:18px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.v-expansion-panel--active{    
+    .v-expansion-panel-header{
+        color: $color-verde!important;
+    }
+}
+
+
+.theme--light.v-timeline{
+    &:before{
+        background: #42b983!important;
+        opacity: 0.12;
+    }
+}

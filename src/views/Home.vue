@@ -1,10 +1,11 @@
 <template>
   <div class="home">        
     <!-- <img src="../assets/banner-laptop.jpg" alt="" srcset=""> -->
-    <Banner image="banner-laptop.jpg" /> 
-    <who-i-am></who-i-am>
+    <Banner id="home-banner" image="banner-laptop.jpg" /> 
+    <who-i-am id="whoIam"></who-i-am>
     <div class="space-2"></div>
-    
+    <time-line id="timeLine"></time-line>
+    <knowledge id="knowledge"></knowledge>
   </div>
 </template>
 
@@ -12,11 +13,15 @@
 // @ es un alias para /src
 import Banner from "./Home/Banner.vue";
 import WhoIAm from "./Home/WhoIAm.vue";
+import TimeLine from "./Home/TimeLine.vue";
+import Knowledge from "./Home/Knowledge.vue";
 export default {
   name: "home",
   components: {
     Banner,
-    WhoIAm
+    WhoIAm,
+    TimeLine,
+    Knowledge
   }
 };
 </script>

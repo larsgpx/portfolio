@@ -12,6 +12,9 @@
         <router-link to="/portafolio">Portafolio</router-link> | 
         <router-link to="/contacto">Contáctanos</router-link> -->
       </v-flex>
+      <v-flex sm2 xs12>
+
+      </v-flex>
       <v-flex sm10 xs12 class="content-side">        
           <transition name="fade">
             <router-view class="dark-bg" />               
@@ -89,7 +92,12 @@ export default {
       currentPage(){
         return this.$router.history.current.name;
       }
-  }
+  },
+  watch: {
+        $route(to, from) {
+            document.title = to.meta.title || 'Portafolio - Larry Garcia';
+        },
+    }
 }
 </script>
 <style lang="scss">

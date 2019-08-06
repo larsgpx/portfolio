@@ -5,7 +5,7 @@
             <!-- quien soy -->
             <v-flex xs9 row>
                 <v-flex class="info-text" xs7>
-                    <h4 class="text-left"> ¿Quien soy yo?</h4>
+                    <h4 class="text-left">Sobre mí</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque cupiditate, dolor saepe eligendi accusantium eveniet magnam neque placeat aperiam? Labore inventore qui iure quas quibusdam pariatur maiores minus consectetur sunt?</p>     
                 </v-flex>
                 <v-flex class="info-text" xs5>
@@ -37,23 +37,58 @@
                     <h5 class="text-left" >LARRY GARCÍA</h5>
             </v-flex>      
         </v-layout>
+        <div class="space-1"></div>
         <!-- que puedo hacer por ti -->
-        <v-layout wrap>
-            <v-flex xs9 row>
+        <v-layout wrap>            
+            <v-flex xs12 xl6 row>
                 <div class="info-text">
                     <h4 class="text-left">¿Que puedo hacer por tí?</h4>                    
                 </div>
-                <v-expansion-panels popout>
+                <div class="space-1"></div>
+                <v-expansion-panels dark popout>                   
+                    <!-- Diseño -->
+                     <v-expansion-panel >
+                        <v-expansion-panel-header>diseño
+                            <template v-slot:actions>
+                                    <v-icon color="#42b983">mdi-chevron-down</v-icon>
+                            </template>
+                        </v-expansion-panel-header>
+                                 
+                        <v-expansion-panel-content flat>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                     <!-- prototipado -->
+                     <v-expansion-panel >
+                        <v-expansion-panel-header>Prototipado
+                            <template v-slot:actions>
+                                    <v-icon color="#42b983">mdi-chevron-down</v-icon>
+                            </template>
+                        </v-expansion-panel-header>
+                                 
+                        <v-expansion-panel-content flat>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
                     <!-- paginas web -->
-                    <v-expansion-panel>
-                        <v-expansion-panel-header>Páginas web</v-expansion-panel-header>
-                        <v-expansion-panel-content>
+                    <v-expansion-panel >
+                        <v-expansion-panel-header>Páginas web
+                            <template v-slot:actions>
+                                    <v-icon color="#42b983">mdi-chevron-down</v-icon>
+                            </template>
+                        </v-expansion-panel-header>
+                                 
+                        <v-expansion-panel-content flat>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
 
                     <v-expansion-panel>
-                        <v-expansion-panel-header>Apps</v-expansion-panel-header>
+                        <v-expansion-panel-header>Apps
+                            <template v-slot:actions>
+                                    <v-icon color="#42b983">mdi-chevron-down</v-icon>
+                            </template>
+                        </v-expansion-panel-header>
                         <v-expansion-panel-content>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </v-expansion-panel-content>
