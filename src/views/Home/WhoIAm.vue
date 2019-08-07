@@ -3,6 +3,9 @@
         <div class="space-1"></div>
         <v-layout wrap>
             <!-- quien soy -->
+             <div class="space-1 space-bg space-bg-left">
+                    <div class="abstract-bg-left"></div>
+                </div>
             <v-flex xs9 row>
                 <v-flex class="info-text" xs7>
                     <h4 class="text-left">Sobre mí</h4>
@@ -37,14 +40,14 @@
                     <h5 class="text-left" >LARRY GARCÍA</h5>
             </v-flex>      
         </v-layout>
-        <div class="space-1"></div>
+        <div class="space-2"></div>
         <!-- que puedo hacer por ti -->
         <v-layout wrap>            
             <v-flex xs12 xl6 row>
                 <div class="info-text">
                     <h4 class="text-left">¿Que puedo hacer por tí?</h4>                    
-                </div>
-                <div class="space-1"></div>
+                </div>                
+                <div class="space-2"></div>
                 <v-expansion-panels dark popout>                   
                     <!-- Diseño -->
                      <v-expansion-panel >

@@ -25,6 +25,9 @@
         </v-card>      
         </v-timeline-item>
   </v-timeline>
+  <div class="space-1 space-bg">
+      <div class="abstract-bg-right"></div>
+  </div>
     </v-container>
 </template>
 <script>

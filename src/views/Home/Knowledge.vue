@@ -1,5 +1,5 @@
 <template>
-    <v-container>      
+    <v-container>              
         <div class="info-text">
                     <h4 class="text-left">Mi Experiencía</h4>                    
         </div>
@@ -39,44 +39,73 @@
             <v-flex xs4>  
                 <h6 class="second-title">Mis habilidades</h6>
                 <div class="range-experience">
-                    <p class="type-experience">Programación</p>
+                    <p class="type-experience">PROGRAMACIÓN</p>
                     <v-list class="bg-trans" dense>
-                <v-list-item>
-                  <v-list-item-content class="name-exp">HTML5:</v-list-item-content>
-                  <v-list-item-content class="align-end">test</v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content class="name-exp">CSS3:</v-list-item-content>
-                  <v-list-item-content class="align-end">test</v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content class="name-exp">JAVASCRIPT:</v-list-item-content>
-                  <v-list-item-content class="align-end">test</v-list-item-content>
-                </v-list-item>
-
-                <v-list-item>
-                  <v-list-item-content class="name-exp">PYTHON:</v-list-item-content>
-                  <v-list-item-content class="align-end">test</v-list-item-content>
-                </v-list-item>
-
+                        
+                        <list-rating title="HTML5" rating="5"></list-rating>
+                        <list-rating title="CSS3" rating="4"></list-rating>
+                        <list-rating title="JAVASCRIPT" rating="4"></list-rating>
+                        <list-rating title="PHP" rating="4"></list-rating>
+                        <list-rating title="VUEJS 2" rating="5"></list-rating>
                 
-              </v-list>
+                    </v-list>
+                </div>  
+                <div class="space-1"></div>
+                <div class="range-experience">
+                    <p class="type-experience">DISEÑO</p>
+                    <v-list class="bg-trans" dense>
+                        
+                        <list-rating title="PHOTOSHOP" rating="3"></list-rating>
+                        <list-rating title="ILLUSTRATOR" rating="2"></list-rating>
+                        <list-rating title="ADOBE XD" rating="3"></list-rating>
+                        <list-rating title="AFTER EFFECTS" rating="3"></list-rating>                        
+                
+                    </v-list>
+                </div>      
+                <div class="space-1"></div>
+                <div class="range-experience">
+                    <p class="type-experience">OTROS</p>
+                    <v-list class="bg-trans" dense>
+                        
+                        <list-rating title="DISEÑO PROTOTIPOS" rating="4"></list-rating>
+                        <list-rating title="SEO" rating="4"></list-rating>
+                        <list-rating title="DISEÑO WEB" rating="5"></list-rating>                                            
+                
+                    </v-list>
                 </div>      
             </v-flex>
         </v-layout>
     </v-container>
 </template>
 <script>
+import ListRating from './Rating.vue'
 export default {
-    
+    data(){
+        return{
+            rating_3: 3,
+            rating_4: 4,
+            rating_5: 5
+        }
+    },
+    components:{
+        ListRating
+    }
 }
 </script>
 <style lang="scss" scoped>
+.type-experience{
+    text-align: left;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+.name-exp{
+    color:#FF8F00;
+    font-weight: 600;
+    margin-right:-100%;
+}
 .experience-box{
     margin:10px;
-    margin-bottom:15px;
+    margin-bottom:45px;
     border-left:2px solid #FF8F00;
     padding-left: 15px;
     .experience-grade{
