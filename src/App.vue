@@ -6,6 +6,7 @@
           <div class="js-container">
             <h1>JS</h1>            
             <h6>Larry García</h6>
+            <p dark>Desarrollador Front-End</p>
           </div>
           <menur class="pt-3"></menur>      
       </v-flex>

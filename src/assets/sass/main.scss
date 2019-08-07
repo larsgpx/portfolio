@@ -104,6 +104,11 @@ p,a,b{
             color:white;
             font-weight: lighter;
         }
+        p{
+            color:$color-naranja;
+            font-size: 1rem;
+            padding-top: 5px;
+        }
     }
 }
 .content-side{

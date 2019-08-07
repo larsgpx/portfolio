@@ -17,10 +17,29 @@
                     outlined
                 >
                     <v-list-item three-line>
-                    <v-list-item-content>
-                        <div class="overline mb-4">OVERLINE</div>
-                        <v-list-item-title class="headline mb-1">Headline 5</v-list-item-title>
-                        <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                    <v-list-item-content class="text-carousel">                        
+                    <v-flex xs4>
+                            <div class="overline mb-4">Overline</div>                        
+                            <v-list-item-subtitle class="sub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi velit ipsum fugiat qui accusantium animi aliquid eaque doloremque optio, praesentium architecto repellat accusamus voluptates obcaecati voluptatibus iure amet quod odit.</v-list-item-subtitle>
+                            <div class="overline mb-4">Overline</div>                        
+                            <v-list dense>
+                                <v-list-item>
+                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon> Calories:</v-list-item-content>
+                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                </v-list-item>
+
+                                <v-list-item>
+                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon>Fat:</v-list-item-content>
+                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                </v-list-item>
+
+                                <v-list-item>
+                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon>Carbs:</v-list-item-content>
+                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                </v-list-item>
+                      
+                            </v-list>
+                    </v-flex>
                     </v-list-item-content>
 
                     <v-list-item-avatar
@@ -57,3 +76,18 @@
     },
   }
   </script>
+  <style lang="scss" scoped>
+  .text-carousel{
+      text-align: left; 
+      .overline{
+          color:#42b983;
+          font-weight: 300;
+          font-size: 20px;
+          margin-bottom: 15px;
+      }
+      .sub{
+          line-height: 25px;
+      }
+  }
+  </style>
+  
