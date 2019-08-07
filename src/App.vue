@@ -7,10 +7,7 @@
             <h1>JS</h1>            
             <h6>Larry García</h6>
           </div>
-          <menur class="pt-3"></menur>
-        <!-- <router-link to="/">Home</router-link> |
-        <router-link to="/portafolio">Portafolio</router-link> | 
-        <router-link to="/contacto">Contáctanos</router-link> -->
+          <menur class="pt-3"></menur>      
       </v-flex>
       <v-flex sm2 xs12>
 

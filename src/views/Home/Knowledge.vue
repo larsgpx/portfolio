@@ -42,11 +42,11 @@
                     <p class="type-experience">PROGRAMACIÓN</p>
                     <v-list class="bg-trans" dense>
                         
-                        <list-rating title="HTML5" rating="5"></list-rating>
-                        <list-rating title="CSS3" rating="4"></list-rating>
-                        <list-rating title="JAVASCRIPT" rating="4"></list-rating>
-                        <list-rating title="PHP" rating="4"></list-rating>
-                        <list-rating title="VUEJS 2" rating="5"></list-rating>
+                        <list-rating title="HTML5" :rating="5"></list-rating>
+                        <list-rating title="CSS3" :rating="4"></list-rating>
+                        <list-rating title="JAVASCRIPT" :rating="4"></list-rating>
+                        <list-rating title="PHP" :rating="4"></list-rating>
+                        <list-rating title="VUEJS 2" :rating="5"></list-rating>
                 
                     </v-list>
                 </div>  
@@ -55,10 +55,10 @@
                     <p class="type-experience">DISEÑO</p>
                     <v-list class="bg-trans" dense>
                         
-                        <list-rating title="PHOTOSHOP" rating="3"></list-rating>
-                        <list-rating title="ILLUSTRATOR" rating="2"></list-rating>
-                        <list-rating title="ADOBE XD" rating="3"></list-rating>
-                        <list-rating title="AFTER EFFECTS" rating="3"></list-rating>                        
+                        <list-rating title="PHOTOSHOP" :rating="3"></list-rating>
+                        <list-rating title="ILLUSTRATOR" :rating="2"></list-rating>
+                        <list-rating title="ADOBE XD" :rating="3"></list-rating>
+                        <list-rating title="AFTER EFFECTS" :rating="3"></list-rating>                        
                 
                     </v-list>
                 </div>      
@@ -67,9 +67,9 @@
                     <p class="type-experience">OTROS</p>
                     <v-list class="bg-trans" dense>
                         
-                        <list-rating title="DISEÑO PROTOTIPOS" rating="4"></list-rating>
-                        <list-rating title="SEO" rating="4"></list-rating>
-                        <list-rating title="DISEÑO WEB" rating="5"></list-rating>                                            
+                        <list-rating title="DISEÑO PROTOTIPOS" :rating="4"></list-rating>
+                        <list-rating title="SEO" :rating="4"></list-rating>
+                        <list-rating title="DISEÑO WEB" :rating="5"></list-rating>                                            
                 
                     </v-list>
                 </div>      

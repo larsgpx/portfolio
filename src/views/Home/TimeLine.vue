@@ -13,7 +13,7 @@
         >
         <template v-slot:opposite>
             <span
-            :class="`headline font-weight-bold ${year.color}--text`"
+            class="headline font-weight-bold"
             v-text="year.year"
             ></span>
         </template>

@@ -6,6 +6,7 @@
     <div class="space-2"></div>
     <time-line id="timeLine"></time-line>
     <knowledge id="knowledge"></knowledge>
+    <carousel-portfolio></carousel-portfolio>
   </div>
 </template>
 
@@ -15,13 +16,15 @@ import Banner from "./Home/Banner.vue";
 import WhoIAm from "./Home/WhoIAm.vue";
 import TimeLine from "./Home/TimeLine.vue";
 import Knowledge from "./Home/Knowledge.vue";
+import CarouselPortfolio from "./Home/CarouselPortfolio.vue";
 export default {
   name: "home",
   components: {
     Banner,
     WhoIAm,
     TimeLine,
-    Knowledge
+    Knowledge,
+    CarouselPortfolio
   }
 };
 </script>
