@@ -5,9 +5,28 @@ $color-azul: #00e5ff;
 $color-negro: #1A1A1A;
 $color-white:#ffffff;
 $color-gris:#455a64;
+$color-gris-light:#a2a5a7;
 $color-blue-dark-gris:#263238;
 $color-marron-dark:#303030;
 
-.primary{
-    background: red;
+.bg-primary{
+    background: $color-verde;
 }
+.bg-trans{
+    background: transparent!important;
+    border: 0!important;
+    .v-sheet{
+        background-color: transparent!important;
+    }
+    .v-card{
+        box-shadow: inherit!important;
+        -webkit-box-shadow: inherit!important;
+    }
+}
+
+
+//color textos
+.gray-light{
+color: $color-gris-light; 
+}
+

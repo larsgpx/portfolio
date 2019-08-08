@@ -1,45 +1,74 @@
 <template>
    <v-container>
-        <v-layout column align-center>           
-            <v-window
-            v-model="window"
-            class="elevation-1"
-            :vertical="vertical"
-            :show-arrows="showArrows"        
-            dark    
-            >
+        <v-card            
+            dark
+            outlined="true"
+            flat
+            tile
+            class="bg-trans"
+        >
+            <v-window v-model="onboarding">
             <v-window-item
                 v-for="n in length"
-                :key="n"
+                :key="`card-${n}`"
             >
                 <v-card
+                color="transparent"                
+                >
+                <v-layout
+                    align-center
+                    justify-center
+                    fill-height
+                    tag="v-card-text"
+                >
+                    <v-card
                     class="mx-auto"                    
-                    outlined
+                    flat
                 >
                     <v-list-item three-line>
                     <v-list-item-content class="text-carousel">                        
-                    <v-flex xs4>
-                            <div class="overline mb-4">Overline</div>                        
+                    <v-flex xs12 xl1 lg1></v-flex>
+                    <v-flex xl4 lg4>
+                            <div class="title mb-4">Overline</div>                        
                             <v-list-item-subtitle class="sub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi velit ipsum fugiat qui accusantium animi aliquid eaque doloremque optio, praesentium architecto repellat accusamus voluptates obcaecati voluptatibus iure amet quod odit.</v-list-item-subtitle>
-                            <div class="overline mb-4">Overline</div>                        
+                            <div class="sub-title mb-4">Sub overline</div>                        
                             <v-list dense>
                                 <v-list-item>
-                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon> Calories:</v-list-item-content>
-                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                    <v-list-item-content class="list-content-space-left">
+                                        <v-icon class="start-icon">mdi-account</v-icon> 
+                                        Cliente:</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
                                 </v-list-item>
 
                                 <v-list-item>
-                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon>Fat:</v-list-item-content>
-                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                    <v-list-item-content class="list-content-space-left">
+                                        <v-icon class="start-icon">mdi-calendar</v-icon>
+                                        Realizado el:</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
                                 </v-list-item>
 
                                 <v-list-item>
-                                    <v-list-item-content><v-icon>mdi-chevron-right</v-icon>Carbs:</v-list-item-content>
-                                    <v-list-item-content class="align-end">contenido</v-list-item-content>
+                                    <v-list-item-content class="list-content-space-left">
+                                        <v-icon class="start-icon">mdi-tag</v-icon>
+                                        Tipo de proyecto:</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
                                 </v-list-item>
                       
                             </v-list>
                     </v-flex>
+                    <v-flex xl2 lg2></v-flex>
+                    <v-flex xs12 xl5 lg5>                        
+                        <v-img
+                            :src="require('@/assets/tbs.png')"
+                            lazy-src="https://picsum.photos/id/11/10/6"
+                            aspect-ratio="1"
+                            class="img-rounded"
+                            max-width="500"
+                            max-height="300"
+                            >
+                        </v-img>
+                    </v-flex>
+
                     </v-list-item-content>
 
                     <v-list-item-avatar
@@ -47,16 +76,47 @@
                         size="80"
                         color="grey"
                     ></v-list-item-avatar>
-                    </v-list-item>
-
-                    <v-card-actions>
-                    <v-btn text>Button</v-btn>
-                    <v-btn text>Button</v-btn>
-                    </v-card-actions>
+                    </v-list-item>                                   
+                </v-card>
+                </v-layout>
                 </v-card>
             </v-window-item>
             </v-window>
-        </v-layout>
+
+            <v-card-actions class="align-center">
+            <v-btn
+                text
+                @click="prev"
+            >
+                <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-item-group
+                v-model="onboarding"
+                class="text-center"
+                mandatory
+            >
+                <v-item
+                v-for="n in length"
+                :key="`btn-${n}`"
+                v-slot:default="{ active, toggle }"
+                >
+                <v-btn
+                    :input-value="active"
+                    icon
+                    @click="toggle"
+                >
+                    <v-icon>mdi-record</v-icon>
+                </v-btn>
+                </v-item>
+            </v-item-group>
+            <v-btn
+                text
+                @click="next"
+            >
+                <v-icon>mdi-chevron-right</v-icon>
+            </v-btn>
+            </v-card-actions>
+        </v-card>
    </v-container>
 </template>
 <script>
@@ -65,9 +125,21 @@
       length: 3,
       window: 0,
       showArrows: true,     
-      autorun: true
+      autorun: true,
+      onboarding: 0 
     }),
-
+    methods: {
+      next () {
+        this.onboarding = this.onboarding + 1 === this.length
+          ? 0
+          : this.onboarding + 1
+      },
+      prev () {
+        this.onboarding = this.onboarding - 1 < 0
+          ? this.length - 1
+          : this.onboarding - 1
+      },
+    },
     created () {
       setInterval(() => {
         if (!this.autorun) return
@@ -79,15 +151,32 @@
   <style lang="scss" scoped>
   .text-carousel{
       text-align: left; 
-      .overline{
-          color:#42b983;
-          font-weight: 300;
-          font-size: 20px;
-          margin-bottom: 15px;
+      padding-left: 15px;
+      .title{
+            color:#42b983;
+            font-weight: 300;
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top:80px;
+      }
+      .sub-title{
+            color:#42b983;
+            font-weight: 300;
+            font-size: 24px;
+            margin-top:30px;
+            margin-bottom: 15px;
       }
       .sub{
           line-height: 25px;
       }
+  }
+  .start-icon{
+      position: absolute;
+      left:15px;
+      color:#FF8F00!important;
+  }
+  .list-content-space-left{
+      padding-left: 60px!important;
   }
   </style>
   

@@ -7,6 +7,8 @@
     <time-line id="timeLine"></time-line>
     <knowledge id="knowledge"></knowledge>
     <carousel-portfolio></carousel-portfolio>
+    <clients></clients>
+    <formulario></formulario>
   </div>
 </template>
 
@@ -17,6 +19,8 @@ import WhoIAm from "./Home/WhoIAm.vue";
 import TimeLine from "./Home/TimeLine.vue";
 import Knowledge from "./Home/Knowledge.vue";
 import CarouselPortfolio from "./Home/CarouselPortfolio.vue";
+import Clients from "./Home/Clients.vue";
+import Formulario from "../components/part/Formulario.vue";
 export default {
   name: "home",
   components: {
@@ -24,7 +28,9 @@ export default {
     WhoIAm,
     TimeLine,
     Knowledge,
-    CarouselPortfolio
+    CarouselPortfolio,
+    Clients,
+    Formulario
   }
 };
 </script>

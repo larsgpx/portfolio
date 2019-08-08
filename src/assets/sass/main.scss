@@ -111,6 +111,15 @@ p,a,b{
         }
     }
 }
+
+.img-center{
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.img-rounded{
+    border-radius: 10px;
+}
 .content-side{
     background:$color-gris;
 }
