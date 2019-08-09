@@ -6,7 +6,7 @@
         <div class="space-1"></div>
         <v-layout wrap>
                 
-            <v-flex xs4>                                
+            <v-flex xs12 lg4 xl4>                                
                 <h6 class="second-title">Estudios</h6>
                 <div class="experience-box">
                     <p class="experience-grade">Universitario</p>
@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </v-flex>
-            <v-flex xs2></v-flex>
-            <v-flex xs4>  
+            <v-flex xs12 lg2 xl2 class="hidden-xs-only"></v-flex>
+            <v-flex xs12 lg4 xl4>  
                 <h6 class="second-title">Mis habilidades</h6>
                 <div class="range-experience">
                     <p class="type-experience">PROGRAMACIÓN</p>
@@ -136,4 +136,13 @@ export default {
     padding-bottom: 5%;
     padding-left: 10px;
 }
+
+//para moviles
+@media screen and (max-width: 600px) {
+    .experience-box{
+        position: relative;
+        z-index: 999999;
+    }
+}
+
 </style>

@@ -6,12 +6,12 @@
              <div class="space-1 space-bg space-bg-left">
                     <div class="abstract-bg-left"></div>
                 </div>
-            <v-flex xs9 row>
-                <v-flex class="info-text" xs7>
+            <v-flex xs12 xl9 lg9 row>
+                <v-flex class="info-text" xs12 lg7 xl7>
                     <h4 class="text-left">Sobre mí</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque cupiditate, dolor saepe eligendi accusantium eveniet magnam neque placeat aperiam? Labore inventore qui iure quas quibusdam pariatur maiores minus consectetur sunt?</p>     
                 </v-flex>
-                <v-flex class="info-text" xs5>
+                <v-flex class="info-text" xs12 lg5 xl5>
                     <v-card class="bg-trans">
                         <v-list dense>
                 <v-list-item>
@@ -35,7 +35,7 @@
         
             
             </v-flex>
-            <v-flex class="developer-portfolio" xs3>
+            <v-flex class="developer-portfolio hidden-xs-only" xs12 lg3 xl3>
                     <h4 class="text-left" >FRONT-END DEVELOPER</h4>
                     <h5 class="text-left" >LARRY GARCÍA</h5>
             </v-flex>      

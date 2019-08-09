@@ -27,8 +27,8 @@
                 >
                     <v-list-item three-line>
                     <v-list-item-content class="text-carousel">                        
-                    <v-flex xs12 xl1 lg1></v-flex>
-                    <v-flex xl4 lg4>
+                    <v-flex xs12 xl1 lg1 class="hidden-xs-only"></v-flex>
+                    <v-flex xs12 xl4 lg4>
                             <div class="title mb-4">Overline</div>                        
                             <v-list-item-subtitle class="sub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi velit ipsum fugiat qui accusantium animi aliquid eaque doloremque optio, praesentium architecto repellat accusamus voluptates obcaecati voluptatibus iure amet quod odit.</v-list-item-subtitle>
                             <div class="sub-title mb-4">Sub overline</div>                        
@@ -37,7 +37,7 @@
                                     <v-list-item-content class="list-content-space-left">
                                         <v-icon class="start-icon">mdi-account</v-icon> 
                                         Cliente:</v-list-item-content>
-                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">contenido de prueba 1 32 3 brrrrrr</v-list-item-content>
                                 </v-list-item>
 
                                 <v-list-item>
@@ -56,8 +56,8 @@
                       
                             </v-list>
                     </v-flex>
-                    <v-flex xl2 lg2></v-flex>
-                    <v-flex xs12 xl5 lg5>                        
+                    <v-flex xl2 lg2 class="hidden-xs-only"></v-flex>
+                    <v-flex xs12 xl5 lg5 class="hidden-xs-only">                        
                         <v-img
                             :src="require('@/assets/tbs.png')"
                             lazy-src="https://picsum.photos/id/11/10/6"
@@ -75,6 +75,7 @@
                         tile
                         size="80"
                         color="grey"
+                        class="hidden-xs-only"
                     ></v-list-item-avatar>
                     </v-list-item>                                   
                 </v-card>
@@ -178,5 +179,13 @@
   .list-content-space-left{
       padding-left: 60px!important;
   }
+
+
+  //para moviles
+@media screen and (max-width: 600px) {
+    .list-content-space-left{
+      padding-left: 0px!important;
+  }
+}
   </style>
   

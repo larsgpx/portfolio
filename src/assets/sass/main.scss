@@ -225,3 +225,52 @@ p,a,b{
         color:white!important;
     }
 }
+
+
+
+
+//Pantallas retina
+@media (min-width: 1904px){
+   
+}
+
+//condiciones especiales solo para desktop
+@media screen and (min-width:901px){
+  
+}
+
+
+//para tablets
+@media screen and (min-width:601px) and (max-width: 900px) {
+   
+}
+
+
+//para moviles
+@media screen and (max-width: 600px) {
+    .row{
+        margin-left:0px!important;
+        margin-right:0px!important;
+    }
+    .banner-lg{        
+        .banner-letters{                            
+            h1{                
+                font-size: 1.3rem;                
+            }
+            h2{               
+                font-size: 1.2rem;                                
+            }
+        }
+    }
+    .bg-trans{
+        .titles{
+            margin-right:-10%;
+        }
+    }
+
+    .info-text{
+        h4{
+            font-size: 1.3rem;
+        }
+    }    
+}

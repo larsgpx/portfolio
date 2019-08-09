@@ -37,4 +37,13 @@ export default {
     padding-bottom: 5px;
     margin-bottom: -15px;
 }
+
+
+//para moviles
+@media screen and (max-width: 600px) {
+    .name-exp{
+        margin-right:0%;
+        text-align: left;
+    }
+}
 </style>
