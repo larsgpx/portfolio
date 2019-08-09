@@ -1,5 +1,8 @@
 <template>
     <v-container grid-list-md text-center>
+      <div class="space-bg">
+          <div class="abstract-full-bg"></div>
+      </div>
     <v-layout wrap align-center justify-center>      
       <v-flex v-for="(client,index) in clients" :key="index" xs6 xl2 lg2>
         <v-card dark color="primary" class="bg-trans ">
