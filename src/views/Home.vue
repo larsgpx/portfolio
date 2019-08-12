@@ -6,8 +6,12 @@
     <div class="space-2"></div>
     <time-line id="timeLine"></time-line>
     <knowledge id="knowledge"></knowledge>
-    <carousel-portfolio></carousel-portfolio>
-    <clients></clients>
+    <div class="full-bg-abstract-content">
+      <carousel-portfolio></carousel-portfolio>    
+      <div class="abstract-full-bg"></div>
+      <clients></clients>
+    </div>
+    
     <formulario></formulario>
   </div>
 </template>

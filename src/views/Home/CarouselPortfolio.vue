@@ -1,8 +1,12 @@
 <template>
-   <v-container>
+   <v-container class="carousel-content">
+        <div class="info-text">
+            <h4 class="text-left">Algunos de los trabajos que he realizado!</h4>                                                                
+        </div>
+        <div class="space-1"></div>
         <v-card            
             dark
-            outlined="true"
+            outlined
             flat
             tile
             class="bg-trans"
@@ -28,7 +32,7 @@
                     <v-list-item three-line>
                     <v-list-item-content class="text-carousel">                        
                     <v-flex xs12 xl1 lg1 class="hidden-xs-only"></v-flex>
-                    <v-flex xs12 xl4 lg4>
+                    <v-flex xs12 xl4 lg4>                            
                             <div class="title mb-4">Overline</div>                        
                             <v-list-item-subtitle class="sub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi velit ipsum fugiat qui accusantium animi aliquid eaque doloremque optio, praesentium architecto repellat accusamus voluptates obcaecati voluptatibus iure amet quod odit.</v-list-item-subtitle>
                             <div class="sub-title mb-4">Sub overline</div>                        
@@ -150,6 +154,10 @@
   }
   </script>
   <style lang="scss" scoped>
+  .carousel-content{
+      z-index: 10;
+      position: relative;
+  }
   .text-carousel{
       text-align: left; 
       padding-left: 15px;
