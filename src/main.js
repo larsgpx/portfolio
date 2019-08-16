@@ -4,7 +4,9 @@ import router from "./router";
 import '@mdi/font/css/materialdesignicons.css';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import VueFire from 'vuefire';
 
+Vue.use(VueFire);
 Vue.use(Vuetify)
 
 export default new Vuetify({

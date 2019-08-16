@@ -76,14 +76,28 @@
 <script>
 import Foot from '@/components/Footer.vue';
 import Menur from '@/components/Menur.vue';
+import Firebase from 'firebase';
+import config from './config';
+let app = Firebase.initializeApp(config);
+let db = app.database();
+let websiteRef = db.ref('websites');
+
 export default {
   components:{
     Foot,
     Menur
   },
+  firebase:{
+    websites:websiteRef
+  },
   data(){
     return{      
-      current: '',          
+      current: '',
+      newWebsite:{
+        name:'',
+        author:'',
+        url:''
+      }
     }    
   },
   computed: {
