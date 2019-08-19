@@ -10,7 +10,7 @@
           </div>
           <menur class="pt-3"></menur>      
       </v-flex>
-      <v-flex sm2 xs12>
+      <v-flex sm2 xs12 class="hidden-xs-only">
 
       </v-flex>
       <v-flex sm10 xs12 class="content-side">        
@@ -76,20 +76,20 @@
 <script>
 import Foot from '@/components/Footer.vue';
 import Menur from '@/components/Menur.vue';
-import Firebase from 'firebase';
-import config from './config';
-let app = Firebase.initializeApp(config);
-let db = app.database();
-let websiteRef = db.ref('websites');
+// import Firebase from 'firebase';
+// import config from './config';
+// let app = Firebase.initializeApp(config);
+// let db = app.database();
+// let websiteRef = db.ref('websites');
 
 export default {
   components:{
     Foot,
     Menur
   },
-  firebase:{
-    websites:websiteRef
-  },
+  // firebase:{
+  //   websites:websiteRef
+  // },
   data(){
     return{      
       current: '',
@@ -104,12 +104,7 @@ export default {
       currentPage(){
         return this.$router.history.current.name;
       }
-  },
-  watch: {
-        $route(to, from) {
-            document.title = to.meta.title || 'Portafolio - Larry Garcia';
-        },
-    }
+  }
 }
 </script>
 <style lang="scss">

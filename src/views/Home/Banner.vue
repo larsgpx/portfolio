@@ -1,5 +1,5 @@
 <template>
-    <v-parallax class="banner-lg" dark :src="require('@/assets/'+image+'')" height="800">
+    <v-parallax class="banner-lg" dark :src="require('@/assets/'+image+'')">
         <v-layout
             align-left
             column
@@ -13,9 +13,19 @@
     </v-parallax>
 </template>
 <script>
-export default { 
+export default {    
     props:{
         image:String
-    }   
+    }
 }
 </script>
+<style lang="scss">
+.banner-lg{
+    height:800px;
+}
+@media screen and (max-width: 600px) {
+ .banner-lg{
+    height:400px;
+}   
+}
+</style>
