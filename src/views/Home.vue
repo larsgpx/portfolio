@@ -1,13 +1,13 @@
 <template>
   <div class="home">        
     <!-- <img src="../assets/banner-laptop.jpg" alt="" srcset=""> -->
-    <Banner id="home-banner" image="banner-laptop.jpg" /> 
-    <who-i-am id="whoIam"></who-i-am>
+    <Banner  id="home-banner" image="banner-laptop.jpg" /> 
+    <who-i-am  id="whoIam"></who-i-am>
     <div class="space-2"></div>
-    <time-line id="timeLine"></time-line>
-    <knowledge id="knowledge"></knowledge>
+    <time-line  id="timeLine"></time-line>
+    <knowledge  id="knowledge"></knowledge>
     <div class="full-bg-abstract-content">
-      <carousel-portfolio></carousel-portfolio>    
+      <carousel-portfolio id="portfolio"></carousel-portfolio>    
       <div class="abstract-full-bg"></div>
       <clients></clients>
     </div>

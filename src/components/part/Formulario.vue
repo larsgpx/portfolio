@@ -44,21 +44,22 @@
                     
                 </v-form>
            </v-flex>
-           <v-flex lg2 xs13 xl3 class="mt-3">
+           <v-flex lg4 xs13 xl3 class="mt-3">
+               <div class="space-1 hidden-desktop-only"></div>
                <div class="info-text ml-1">                    
                     <h6 class="sub-text-left mt-3 ml-1">Redes Sociales</h6>
-                    <v-layout align-content-center justify-start mt-1 ml-2>
-                        <v-flex class="mr-1" xs1 xl1 lg1>
+                    <v-layout align-content-center justify-start mt-1 ml-2 class="social-media">
+                        <v-flex class="mr-1" xs2 xl1 lg1>
                            <a  target="blank" class="social-icons" href="https://instagram.com/larsgp">
                                <v-icon dark>mdi-instagram</v-icon>
                            </a>
                         </v-flex>
-                        <v-flex class="mr-1" xs1 xl1 lg1>
+                        <v-flex class="mr-1" xs2 xl1 lg1>
                             <a  target="blank" class="social-icons" href="https://facebook.com">
                                <v-icon dark>mdi-facebook</v-icon>
                            </a>
                         </v-flex>
-                        <v-flex class="mr-1" xs1 xl1 lg1>
+                        <v-flex class="mr-1" xs2 xl1 lg1>
                             <a  target="blank" class="social-icons" href="https://linkedin.com">
                                <v-icon dark>mdi-linkedin</v-icon>
                            </a>

@@ -194,6 +194,14 @@
     .list-content-space-left{
       padding-left: 0px!important;
   }
+  .start-icon{
+      left:-15px;
+  }
+  .hidden-xs-only{
+      display:none!important;
+      
+  }
+
 }
   </style>
   

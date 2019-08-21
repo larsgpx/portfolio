@@ -18,10 +18,18 @@ h5,h6{
     }
   }
 
-
+  html {
+    scroll-behavior: smooth;
+  }
   #app{
     font-family: 'Nunito Sans', sans-serif!important;   
   }
+
+.v-list-item__content{
+    a{
+        text-decoration: none!important;
+    }
+}
 
 .space-bg{
     position: absolute;    
@@ -338,6 +346,17 @@ p,a,b{
 
 //para moviles
 @media screen and (max-width: 600px) {
+    .info-text{
+        .sub-text-left{
+            padding-bottom:10px;
+        }
+        .social-media{
+            padding-left: 16px;
+        }
+    }
+    .space-1{
+        width:max-content;
+    }
     @for $i from 1 through 5 {
         .m-m-#{$i} {
           margin: $i+rem;      
@@ -357,8 +376,9 @@ p,a,b{
       }
 
       .abstract-bg-right{
-          right: 0%;
-          width: 50vw;
+          right: 0%!important;
+          width: 50vw!important;
+          display: none;
       }
     .row{
         margin-left:0px!important;

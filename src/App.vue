@@ -24,16 +24,17 @@
       :bottom="true"
       :right="true"      
       direction="top"   
-      :fixed="true"         
+      :fixed="true"       
     >
       <template v-slot:activator>
         <v-btn          
           color="#42b983"
           dark
           fab
+          class="float-boton"
         >
           <v-icon v-if="fab">mdi-close</v-icon>
-          <v-icon v-else> mdi-plus</v-icon>
+          <v-icon v-else> mdi-menu</v-icon>
         </v-btn>
       </template>
       <v-btn
@@ -109,6 +110,9 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/sass/main.scss";
+.float-boton{
+  z-index: 999999;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
