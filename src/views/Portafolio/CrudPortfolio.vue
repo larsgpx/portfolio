@@ -6,46 +6,54 @@
                 ref="form"                             
                 class="form-style"
                 id="contact-form"
+                @submit.prevent="addPortfolio"
                 >
                     <v-text-field                        
-                        label="Nombre Completo"
+                        label="Nombre Proyecto"
                         outlined
                         required
-                        v-model="name"
+                        v-model="newProyect.name"
                     ></v-text-field>
 
                     <v-text-field                                          
-                        label="E-mail"
+                        label="Fecha de creacion"
                         required
                         outlined
-                        v-model="email"
+                        v-model="newProyect.fecha"
                     ></v-text-field>  
 
                     <v-text-field                                                        
-                            label="Tema"
+                            label="Tipo de proyecto"
                             required
                             outlined
-                            v-model="tema"
+                            v-model="newProyect.type"
                     ></v-text-field>        
                     <v-text-field                            
-                            label="Mensaje"
+                            label="Descripcion"
                             required
                             outlined
-                            v-model="message"
-                    ></v-text-field>   
+                            v-model="newProyect.description"
+                    ></v-text-field>  
+                    <v-text-field                            
+                            label="url"                            
+                            outlined
+                            v-model="newProyect.url"
+                    ></v-text-field>    
 
                     <v-btn                         
                         color="#FF8F00"                      
-                        class="mr-4 btn-form align-end"  
-                        v-on:click="submit"  
-                        type="submit"     
-                        :loading="isLoading"
-                        :disabled="isLoading"               
+                        class="mr-4 btn-form align-end"                          
+                        type="submit"                                     
                     >
-                        Enviar
+                        Subir
                     </v-btn>
                     
                 </v-form>
+                <ul>
+                    <li v-for="p in portafolios" :key="p.name">
+                        <p>{{p.name}}</p>
+                    </li>
+                </ul>
     </div>
 </template>
 <script>
@@ -53,27 +61,30 @@ import Firebase from 'firebase';
 import config from '../../config';
 let app = Firebase.initializeApp(config);
 let db = app.database();
-let websiteRef = db.ref('websites');
+let websiteRef = db.ref('portafolios');
 export default {
     firebase:{
-    websites:websiteRef
-  },  
+        portafolios:websiteRef // portafolios es el nombre de referencia que se usara para llamar un array con V-for por ejemplo, con eso estare llamando el arreglo portafolios
+    },  
     data(){
-        return{
-            item:{
-                name: 'test',
-                fecha: 'fecha',
-                type: 'Tipo proyecto',
-                description: 'lorem ipsum dolor mother apsan fucker'
-            },
-            current: '',
-            newWebsite:{
+        return{               
+            newProyect:{
                 name:'',
                 fecha:'',
                 type:'',
                 description:'',
                 url:'',
             }
+        }
+    },
+    methods:{
+        addPortfolio(){                        
+            websiteRef.push(this.newProyect);            
+            this.newProyect.name = '';
+            this.newProyect.fecha = '';
+            this.newProyect.type = '';
+            this.newProyect.description = '';
+            this.newProyect.url = '';
         }
     }
 }

@@ -44,7 +44,7 @@ export default {
       ],
       offsetTop: 0,
       portfolioAdmin:[        
-        {title: 'Regresar al inicio', icon: 'mdi-view-dashboard',link:'/'},
+        {title: 'Regresar al inicio', icon: 'mdi-chevron-left',link:'/'},
         // {title: 'Añadir proyecto', icon: 'mdi-view-person_outline',link:'whoIam'},
         // {title: 'Listar proyecto', icon: 'mdi-view-extension',link:'knowledge'},
         // {title: 'Portafolio', icon: 'mdi-view-extension',link:'portfolio'}        
