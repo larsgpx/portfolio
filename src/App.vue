@@ -4,7 +4,9 @@
       <v-layout>
         <v-flex sm2 xs12 id="nav" class="left-navbar hidden-xs-only">
           <div class="js-container">
-            <h1>JS</h1>            
+            <router-link to="home">
+              <h1>JS</h1>            
+            </router-link>
             <h6>Larry García</h6>
             <p dark>Desarrollador Front-End</p>
           </div>

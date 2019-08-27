@@ -30,7 +30,11 @@ h5,h6{
         text-decoration: none!important;
     }
 }
-
+#nav{
+    a{
+        text-decoration: none;
+    }
+}
 .space-bg{
     position: absolute;    
     height: 700px;

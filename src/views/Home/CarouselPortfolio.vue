@@ -1,7 +1,15 @@
 <template>
    <v-container class="carousel-content">
         <div class="info-text">
-            <h4 class="text-left">Algunos de los trabajos que he realizado!</h4>                                                                
+            <h4 class="text-left">Algunos de los trabajos que he realizado!
+            <router-link class="btn-naranja" to="portafolio">
+                    <v-btn class="" fab dark small color="#FF8F00">
+                        <v-icon dark>mdi-plus</v-icon>
+                    </v-btn>                                                              
+            </router-link>    
+            </h4>  
+                
+                
         </div>
         <div class="space-1"></div>
         <v-card            
@@ -187,7 +195,13 @@
   .list-content-space-left{
       padding-left: 60px!important;
   }
-
+.btn-naranja{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+    margin-left: 15px;
+}
 
   //para moviles
 @media screen and (max-width: 600px) {

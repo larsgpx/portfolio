@@ -1,8 +1,7 @@
-<template>
-    <v-card>
+<template>    
         <v-footer
         
-        class="font-weight-medium"
+        class="font-weight-medium futer"
         >
             <v-flex
                 text-center
@@ -10,11 +9,17 @@
             >
                 {{ new Date().getFullYear() }} — <strong>Larry G.</strong>
             </v-flex>
-        </v-footer>
-  </v-card>
+        </v-footer>  
 </template>
 <script>
 export default {
     
 }
 </script>
+<style lang="scss">
+    .futer{
+        position: absolute;
+        bottom: 0;
+        width:100%;
+    }
+</style>

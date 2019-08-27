@@ -11,33 +11,42 @@
                 <v-form
                 ref="form"                             
                 class="form-style"
+                id="contact-form"
                 >
                     <v-text-field                        
                         label="Nombre Completo"
                         outlined
                         required
+                        v-model="name"
                     ></v-text-field>
 
                     <v-text-field                                          
                         label="E-mail"
                         required
                         outlined
+                        v-model="email"
                     ></v-text-field>  
 
                     <v-text-field                                                        
                             label="Tema"
                             required
                             outlined
+                            v-model="tema"
                     ></v-text-field>        
                     <v-text-field                            
                             label="Mensaje"
                             required
                             outlined
+                            v-model="message"
                     ></v-text-field>   
 
                     <v-btn                         
                         color="#FF8F00"                      
-                        class="mr-4 btn-form align-end"                        
+                        class="mr-4 btn-form align-end"  
+                        v-on:click="submit"  
+                        type="submit"     
+                        :loading="isLoading"
+                        :disabled="isLoading"               
                     >
                         Enviar
                     </v-btn>
@@ -55,12 +64,12 @@
                            </a>
                         </v-flex>
                         <v-flex class="mr-1" xs2 xl1 lg1>
-                            <a  target="blank" class="social-icons" href="https://facebook.com">
+                            <a  target="blank" class="social-icons" href="https://www.facebook.com/larryjoel.garciaparedes">
                                <v-icon dark>mdi-facebook</v-icon>
                            </a>
                         </v-flex>
                         <v-flex class="mr-1" xs2 xl1 lg1>
-                            <a  target="blank" class="social-icons" href="https://linkedin.com">
+                            <a  target="blank" class="social-icons" href="https://www.linkedin.com/in/larry-garcia-818646aa/">
                                <v-icon dark>mdi-linkedin</v-icon>
                            </a>
                         </v-flex>
@@ -104,7 +113,54 @@
 </template>
 <script>
 export default {
-    
+     name: 'contact',
+  data () {
+    return {
+      title: 'Contact',
+      viewName: 'Formulario',     
+      user_recieved: 'Larry García',            
+      name: null,
+      email: null,      
+      tema: null,
+      message: null,
+      formSubmitted: false,
+      isLoading: false,
+      formInvalid: false      
+    }
+  },
+  mounted () {
+    this.$nextTick(function () {
+      let emailJSscript = document.createElement('script')
+      emailJSscript.setAttribute('src', 'https://cdn.emailjs.com/sdk/2.2.4/email.min.js')
+      document.head.appendChild(emailJSscript)
+    })
+  },
+  methods: {
+    submit () {
+      event.preventDefault();
+      if (this.email !== null && this.name !== null && this.message !== null && this.tema !== null) {
+        this.formInvalid = false
+        this.isLoading = true
+        this.formSubmitted = false
+        emailjs.init('user_iAgRF2glgHlNxr3J9UDzJ')
+        this.contact_number = Math.random() * 100000 | 0
+        emailjs.send(
+          'default_service',
+          'template_0ZLF0sQ8',
+          {email: this.email, name: this.name, message: this.message, tema: this.tema, user_recieved: this.user_recieved}
+        ).then((response) => {
+          this.formSubmitted = true
+          this.isLoading = false
+          console.log('Excelente! tu correo ha sido enviado!', response)
+        }, (error) => {
+          console.log('Error! Algo ha sucedido y no pudo enviarse el correo', error)
+          this.isLoading = false
+        })
+      } else {
+        console.log('error');
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">

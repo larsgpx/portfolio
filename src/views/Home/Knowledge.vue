@@ -143,6 +143,9 @@ export default {
         position: relative;
         z-index: 999999;
     }
+    .name-exp{
+        font-size:14px;
+    }
 }
 
 </style>
