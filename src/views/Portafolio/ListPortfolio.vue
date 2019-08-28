@@ -17,7 +17,7 @@
                 <td>{{ item.type }}</td>
                 <td>{{ item.description }}</td>
                 <td><a :href="item.url" target="_blank">{{ item.url }} </a></td>
-                <td>X</td>
+                <td @click="deletePortfolio">X</td>
             </tr> -->
            
         </tbody>

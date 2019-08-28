@@ -35,8 +35,8 @@
           fab
           class="float-boton"
         >
-          <v-icon v-if="fab">mdi-close</v-icon>
-          <v-icon v-else> mdi-menu</v-icon>
+          <!-- <v-icon v-if="fab">mdi-close</v-icon> -->
+          <v-icon> mdi-menu</v-icon>
         </v-btn>
       </template>
       <v-btn

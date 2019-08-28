@@ -48,12 +48,23 @@
                         Subir
                     </v-btn>
                     
-                </v-form>
-                <ul>
-                    <li v-for="p in portafolios" :key="p.name">
-                        <p>{{p.name}}</p>
-                    </li>
-                </ul>
+                </v-form>            
+
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>name</th>
+                    <th>type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(p,index) in portafolios" :key="index">
+                        <td><a v-bind:href="p.url">{{p.name}}</a></td>
+                        <td>{{p.type}}</td>
+                        <!-- <p style="color:white"><button @click="deletePortfolio(port)">eliminar</button> </p> -->
+                    </tr>
+                </tbody>
+                </table>
     </div>
 </template>
 <script>
@@ -61,11 +72,9 @@ import Firebase from 'firebase';
 import config from '../../config';
 let app = Firebase.initializeApp(config);
 let db = app.database();
-let websiteRef = db.ref('portafolios');
-export default {
-    firebase:{
-        portafolios:websiteRef // portafolios es el nombre de referencia que se usara para llamar un array con V-for por ejemplo, con eso estare llamando el arreglo portafolios
-    },  
+let FirebaseRef = db.ref('portafolios');
+
+export default {  
     data(){
         return{               
             newProyect:{
@@ -74,18 +83,28 @@ export default {
                 type:'',
                 description:'',
                 url:'',
-            }
+            },         
+            portafolios: []    
         }
     },
+    firebase: function(){
+        return{
+            portafolios:db.ref('portafolios') // portafolios es el nombre de referencia que se usara para llamar un array con V-for por ejemplo, con eso estare llamando el arreglo portafolios
+        }
+    },  
     methods:{
         addPortfolio(){                        
-            websiteRef.push(this.newProyect);            
+            FirebaseRef.push(this.newProyect);            
             this.newProyect.name = '';
             this.newProyect.fecha = '';
             this.newProyect.type = '';
             this.newProyect.description = '';
-            this.newProyect.url = '';
+            this.newProyect.url = '';            
+        },
+        deletePortfolio(portafolios){
+            FirebaseRef.child(portafolios['.key']).remove();
         }
     }
 }
+
 </script>
