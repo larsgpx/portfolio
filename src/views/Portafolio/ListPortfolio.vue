@@ -11,20 +11,23 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr v-for="(item,index) in portafolios" :key="index">
+            <tr v-for="item in listado" :key="item['.key']">
                 <td>{{ item.name }}</td>
                 <td>{{ item.fecha }}</td>
                 <td>{{ item.type }}</td>
                 <td>{{ item.description }}</td>
                 <td><a :href="item.url" target="_blank">{{ item.url }} </a></td>
-                <td @click="deletePortfolio">X</td>
-            </tr> -->
+                <td @click="deletePort">X</td>
+            </tr>
            
         </tbody>
     </v-simple-table>
 </template>
 <script>
 export default {
-
+    props:{
+        deletePort: Function,
+        listado: Array
+    }
 }
 </script>

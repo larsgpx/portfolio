@@ -4,9 +4,9 @@ import router from "./router";
 import '@mdi/font/css/materialdesignicons.css';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
-import { firestorePlugin } from 'vuefire'
+import { firestorePlugin, rtdbPlugin as VueFire } from 'vuefire';
 
-Vue.use(firestorePlugin);
+Vue.use(firestorePlugin,VueFire);
 Vue.use(Vuetify);
 
 export default new Vuetify({

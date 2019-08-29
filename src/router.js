@@ -27,6 +27,13 @@ export default new Router({
       name: "contact",      
       component: () =>
         import(/* webpackChunkName: "contact" */ "./views/Contact.vue")
+    },
+    {
+      path: "/test",
+      name: "test",      
+      component: () =>
+        import(/* webpackChunkName: "contact" */ "./views/TestingFirebase.vue")
     }
+
   ]
 });
