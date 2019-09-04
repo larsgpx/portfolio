@@ -63,8 +63,8 @@ export default {
                 type:'',
                 description:'',
                 url:'',
-            },
-            prueba: 'Pruebaaaa'          
+            }
+                     
         }
     },
     props:{

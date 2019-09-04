@@ -18,8 +18,10 @@
 </template>
 <script>
 import Firebase from 'firebase';
-import { db } from '../Firestore'; 
-
+import config from '../config';
+let app = Firebase.initializeApp(config);
+let db = app.database();
+let FirebaseRef = db.ref('portafolios');
 import CrudPortfolio from './Portafolio/CrudPortfolio.vue';
 import ListPorfolio from './Portafolio/ListPortfolio.vue';
 
@@ -27,41 +29,37 @@ export default {
   components:{
     ListPorfolio,
     CrudPortfolio
-  },     
+  },
+    firebase: function(){
+        return{
+            // portafolios:FirebaseRef // portafolios es el nombre de referencia que se usara para llamar un array con V-for por ejemplo, con eso estare llamando el arreglo portafolios
+            portafolios:{
+              source: db.ref('portafolios'),
+              cancelCallback(err) {
+                console.error(err);
+              }
+            }
+        }
+    },  
     mounted(){
       const proyect = this.$refs.FormData;
     },
     data(){
       return{
-        portafolios: []        
-      }
-    },
-    firestore() {
-      return {
-        portafolios: db.collection('Portafolios'),
+        portafolios: []
       }
     },
     methods:{
         addPortfolio(){                        
-            // FirebaseRef.push(this.$refs.FormData.newProyect);           
-            this.$firestore.portafolios.add(
-              {                                
-                 name : this.$refs.FormData.newProyect.name,
-                 fecha : this.$refs.FormData.newProyect.fecha,
-                 type : this.$refs.FormData.newProyect.type,
-                 description : this.$refs.FormData.newProyect.description,
-                 url    : this.$refs.FormData.newProyect.url,   
-                 timestamp: new Date(),
-              }
-            );
+            FirebaseRef.push(this.$refs.FormData.newProyect); 
             this.$refs.FormData.newProyect.name = '';
             this.$refs.FormData.newProyect.fecha = '';
             this.$refs.FormData.newProyect.type = '';
             this.$refs.FormData.newProyect.description = '';
-            this.$refs.FormData.newProyect.url = '';   
+            this.$refs.FormData.newProyect.url = '';            
         },
-        deletePortfolio(port){            
-            this.$firestore.portafolios.doc(port).delete();
+        deletePortfolio(){
+            FirebaseRef.child(portafolios['.key']).remove();
         }
     }
 }

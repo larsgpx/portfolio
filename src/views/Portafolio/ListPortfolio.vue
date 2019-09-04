@@ -17,7 +17,7 @@
                 <td>{{ item.type }}</td>
                 <td>{{ item.description }}</td>
                 <td><a :href="item.url" target="_blank">{{ item.url }} </a></td>
-                <td @click="deletePort">X</td>
+                <td @click="deletePort(item.id)">X</td>
             </tr>
            
         </tbody>

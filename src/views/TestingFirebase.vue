@@ -1,36 +1,75 @@
 <template>
+  <div id="app">
     <div>
-        <article v-for="(item, idx) in locations" :key="idx">
-            <a :href="item.url">
-                <h1>{{ item.name }}</h1>
-            </a>
-        </article>
+      <input type="text"
+        v-model="newReptile"
+        @keyup.enter="addReptile">
+        <input type="text"
+        v-model="newReptile"
+        @keyup.enter="addReptile">
+      <button  @click="addReptile">
+        Add Reptile
+      </button>
     </div>
+    <ul class="reptileList">
+      <li v-for="reptile in reptiles" :key="reptile.id">
+          {{ reptile.name }} -
+          <button @click="deleteReptile(reptile.id)">
+            Remove
+          </button>
+      </li>
+    </ul>
+  </div>
 </template>
-<script>
 
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
-firebase.initializeApp({
-  projectId: '6ft4VKkOPyo2u63cBgyi',
-  databaseURL: 'https://portfolio-larsgp.firebaseio.com/'
-})
-export const db = firebase.firestore();
-
-
-
-export default {
-  name: 'Test',
-  data () {
-    return {
-      locations: []
-    }
-  },
-  firestore () {
-    return {
-      locations: db.collection('larsgpx123')
+<script>  
+  import { db } from '../Firestore';  
+  export default {
+    name: 'app',
+    data() {
+      return {
+        reptiles: [],
+        newReptile: '',
+        testRep: ''
+      }
+    },
+    firestore() {
+      return {
+        reptiles: db.collection('larsgpx123'),
+      }
+    },
+    methods: {
+      addReptile: function() {
+        this.$firestore.reptiles.add(
+          {
+            name: this.newReptile,
+            test: this.testRep,
+            timestamp: new Date()
+          }
+        );
+        this.newReptile = '';
+        this.testRep = '';
+      },
+      deleteReptile: function(reptile) {
+        this.$firestore.reptiles.doc(reptile).delete();
+      }
     }
   }
-}
 </script>
+
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+  }
+  .reptileList {
+    list-style: none;
+  }
+  input{
+    background-color: white;
+  }
+</style>

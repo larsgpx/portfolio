@@ -5,7 +5,9 @@ import '@mdi/font/css/materialdesignicons.css';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import { firestorePlugin, rtdbPlugin as VueFire } from 'vuefire';
+import VueFirestore from 'vue-firestore';
 
+Vue.use(VueFirestore);
 Vue.use(firestorePlugin,VueFire);
 Vue.use(Vuetify);
 
