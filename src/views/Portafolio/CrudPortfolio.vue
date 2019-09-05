@@ -26,7 +26,14 @@
                             required
                             outlined
                             v-model="newProyect.type"
-                    ></v-text-field>        
+                    ></v-text-field>
+              
+                    <v-file-input @change="onFileSelected" placeholder="Elige tu imagen" v-model="files" outlined label="File input" prepend-icon="mdi-clippy" dark></v-file-input>
+                    <template>
+                        <div>
+                            <img :src="this.picture" width="100%" alt="">
+                        </div>  
+                    </template>
                     <v-text-field                            
                             label="Descripción"
                             required
@@ -71,18 +78,21 @@ export default {
                 description:'',
                 url:'',
                 date:''
-            }
+            },
+            selectedFile: null,
+            UploadValue: 0,
+            picture:null
                      
         }
     },  
     props:{
         list: Object,
-        addPort: Function        
+        addPort: Function   
     },
     methods: {            
         getHumanDate : function (date) {
             return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
-        }
+        }      
     }
  
 }
@@ -92,8 +102,8 @@ export default {
     .pikaday-input{
         border: 1px solid #757575;
         width: 100%;
-        margin-top: -15px;
-        margin-bottom: 15px;        
+        margin-top: -5px;
+        margin-bottom: 25px;        
         border-radius: 3px;
         height: 50px;
         color:white;
@@ -101,5 +111,16 @@ export default {
     }
     .hide{
         display: none;
+    }
+    ::-webkit-input-placeholder { /* Edge */
+    color: white;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    }
+
+    ::placeholder {
+    color: white;
     }
 </style>
