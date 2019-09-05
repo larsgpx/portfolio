@@ -38,3 +38,8 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+  .theme--light.v-footer{
+    position:inherit!important;
+  }
+</style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>Agregar nuevo portafolio</h3>
-        <br>
+        <br>    
         <v-form
                 ref="form"                             
                 class="form-style"
@@ -14,14 +14,13 @@
                         required
                         v-model="newProyect.name"
                     ></v-text-field>
-
-                    <v-text-field                                          
-                        label="Fecha de creacion"
-                        required
-                        outlined
+                    
+                    <vue-pikaday class="pikaday-input"
+                        :options="pikadayOptions"
                         v-model="newProyect.fecha"
-                    ></v-text-field>  
-
+                        placeholder="Elige una fecha"
+                    />                                                         
+                 
                     <v-text-field                                                        
                             label="Tipo de proyecto"
                             required
@@ -29,7 +28,7 @@
                             v-model="newProyect.type"
                     ></v-text-field>        
                     <v-text-field                            
-                            label="Descripcion"
+                            label="Descripción"
                             required
                             outlined
                             v-model="newProyect.description"
@@ -52,26 +51,55 @@
     </div>
 </template>
 <script>
-
+import Vue from "vue";
+import * as moment from 'moment';
+import VuePikaday from '@enrian/vue-pikaday';
+import '@enrian/vue-pikaday/dist/vue-pikaday.min.css';
+Vue.use(VuePikaday);
 
 export default {  
     data(){
-        return{               
+        return{                          
+            now: null,
+            pikadayOptions: {                
+                format: 'DD/MM/YYYY'               
+            },
             newProyect:{
                 name:'',
-                fecha:'',
+                fecha: '',
                 type:'',
                 description:'',
                 url:'',
+                date:''
             }
                      
         }
-    },
+    },  
     props:{
         list: Object,
         addPort: Function        
+    },
+    methods: {            
+        getHumanDate : function (date) {
+            return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+        }
     }
  
 }
 
 </script>
+<style lang="scss">
+    .pikaday-input{
+        border: 1px solid #757575;
+        width: 100%;
+        margin-top: -15px;
+        margin-bottom: 15px;        
+        border-radius: 3px;
+        height: 50px;
+        color:white;
+        padding: 10px;
+    }
+    .hide{
+        display: none;
+    }
+</style>

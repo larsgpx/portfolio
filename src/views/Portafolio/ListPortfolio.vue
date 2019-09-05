@@ -13,7 +13,7 @@
         <tbody>
             <tr v-for="item in listado" :key="item['.key']">
                 <td>{{ item.name }}</td>
-                <td>{{ item.fecha }}</td>
+                <td>{{ item.fecha | moment }} </td>
                 <td>{{ item.type }}</td>
                 <td>{{ item.description }}</td>
                 <td><a :href="item.url" target="_blank">{{ item.url }} </a></td>
@@ -24,10 +24,21 @@
     </v-simple-table>
 </template>
 <script>
+import * as moment from 'moment';
 export default {
     props:{
         deletePort: Function,
         listado: Array
+    },
+    methods: {
+        moment: function () {
+            return moment();
+        }
+    },
+    filters: {
+        moment: function (date) {
+            return moment(String(date)).format('DD/MM/YYYY');
+        }
     }
 }
 </script>
