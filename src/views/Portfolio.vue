@@ -5,7 +5,7 @@
       <v-row justify="center"
       no-gutters>      
         <v-col cols="12" md="5">
-          <crud-portfolio :addPort="addPortfolio" ref="FormData" xs12 lg6 xl6></crud-portfolio>        
+          <crud-portfolio :addPort="addPortfolio" ref="FormData" FileSel="selectedFile" pict="picture" xs12 lg6 xl6></crud-portfolio>        
         </v-col>
         <v-col cols="12" md="1" class="hidden-xs-only"></v-col>
         <v-col cols="12" md="6">
@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import Firebase from 'firebase';
+import Firebase, { storage } from 'firebase';
 import { db } from '../Firestore'; 
 import * as moment from 'moment';
 import CrudPortfolio from './Portafolio/CrudPortfolio.vue';
@@ -33,7 +33,10 @@ export default {
     },
     data(){
       return{
-        portafolios: []        
+        portafolios: [],
+        selectedFile: null,
+        UploadValue: 0,
+        picture:null  
       }
     },
     firestore() {
@@ -65,6 +68,24 @@ export default {
         },
         deletePortfolio(port){            
             this.$firestore.portafolios.doc(port).delete();
+        },
+        onFileSelected(event){
+            this.$refs.FormData.selectedFile = event.target.files[0]
+        },
+        onUpload(){
+            const storageRef = firebase.storage().ref(`imgPortfolio/${this.$refs.FormData.selectedFile.name}`);
+            const task = storageRef.put(this.$refs.FormData.selectedFile);
+            task.on('state_changed',snapshot=>{
+              let percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+              this.$refs.FormData.UploadValue = percentage;
+            }, error=>{console.log(error.message)},
+            ()=>{this.UploadValue = 100;
+                //downloadUrl - para mostrar la imagen q se acaba de subir
+                task.snapshot.ref.getDownloadURL().then((url)=>{
+                  this.$refs.FormData.picture = url;
+                  console.log(this.picture);
+                });
+            });
         }
     }
 }

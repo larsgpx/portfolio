@@ -3,7 +3,7 @@ export default{
     authDomain: "portfolio-larsgp.firebaseapp.com",
     databaseURL: "https://portfolio-larsgp.firebaseio.com",
     projectId: "portfolio-larsgp",
-    storageBucket: "",
+    storageBucket: "gs://portfolio-larsgp.appspot.com",
     messagingSenderId: "675698678861",
     appId: "1:675698678861:web:fa818d89e7439d6a"
 }

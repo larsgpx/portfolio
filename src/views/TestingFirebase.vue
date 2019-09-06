@@ -76,12 +76,11 @@ import firebase from 'firebase';
               task.snapshot.ref.getDownloadURL().then((url)=>{                
                 this.picture = url;
                 self.FullUrlImg = url;
-                firebase.database().ref('larsgpx123').child().update(
-                  {FullUrlImg:downloadURL})
                 console.log('picture: '+ url);                    
               })
           });
-      }     
+      },
+    }
   }
 </script>
 
