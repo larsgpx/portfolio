@@ -2,6 +2,7 @@
     <v-simple-table dark>
         <thead>
             <tr>
+                <th class="text-left">Imagen</th>
                 <th class="text-left">Cliente</th>
                 <th class="text-left">Fecha realizado</th>
                 <th class="text-left">Tipo proyecto</th>
@@ -12,6 +13,7 @@
         </thead>
         <tbody>
             <tr v-for="item in listado" :key="item['.key']">
+                <td class="img-project"><img :src="item.img" ></td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.fecha | moment }} </td>
                 <td>{{ item.type }}</td>
@@ -42,3 +44,10 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    .img-project{
+        img{
+            width:100%;
+        }
+    }
+</style>

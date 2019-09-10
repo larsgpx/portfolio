@@ -36,7 +36,7 @@ export default {
         portafolios: [],
         selectedFile: null,
         UploadValue: 0,
-        picture:null  
+        picture:null
       }
     },
     firestore() {
@@ -49,17 +49,9 @@ export default {
             return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
         },
         addPortfolio(){                        
-            // FirebaseRef.push(this.$refs.FormData.newProyect);                
-            this.$firestore.portafolios.add(
-              {                                
-                 name : this.$refs.FormData.newProyect.name,
-                 fecha : this.getHumanDate(this.$refs.FormData.newProyect.fecha),
-                 type : this.$refs.FormData.newProyect.type,
-                 description : this.$refs.FormData.newProyect.description,
-                 url    : this.$refs.FormData.newProyect.url,   
-                 timestamp: new Date(),
-              }
-            );
+            // FirebaseRef.push(this.$refs.FormData.newProyect);   
+            const data = this.$refs.FormData.newProyect;  
+            this.onUpload(data.name,data.fecha,data.type,data.description,data.url);               
             this.$refs.FormData.newProyect.name = '';
             this.$refs.FormData.newProyect.fecha = '';
             this.$refs.FormData.newProyect.type = '';
@@ -68,25 +60,31 @@ export default {
         },
         deletePortfolio(port){            
             this.$firestore.portafolios.doc(port).delete();
-        },
-        onFileSelected(event){
-            this.$refs.FormData.selectedFile = event.target.files[0]
-        },
-        onUpload(){
-            const storageRef = firebase.storage().ref(`imgPortfolio/${this.$refs.FormData.selectedFile.name}`);
-            const task = storageRef.put(this.$refs.FormData.selectedFile);
-            task.on('state_changed',snapshot=>{
-              let percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-              this.$refs.FormData.UploadValue = percentage;
-            }, error=>{console.log(error.message)},
-            ()=>{this.UploadValue = 100;
-                //downloadUrl - para mostrar la imagen q se acaba de subir
-                task.snapshot.ref.getDownloadURL().then((url)=>{
-                  this.$refs.FormData.picture = url;
-                  console.log(this.picture);
-                });
-            });
-        }
+        },   
+        onUpload(name,fecha,type,description,website){
+          const storageRef = Firebase.storage().ref(`/imgPortfolio/${this.$refs.FormData.selectedFile.name}`);        
+          const task = storageRef.put(this.$refs.FormData.selectedFile);
+          task.on('state_changed',snapshot=>{
+            let percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            this.UploadValue = percentage;
+          }, error=>{console.log(error.message)},
+          ()=>{
+              //downloadUrl - para mostrar la imagen q se acaba de subir con todo y ruta
+              task.snapshot.ref.getDownloadURL().then((url)=>{
+                this.$firestore.portafolios.add(
+                {
+                  img: url,
+                  name : name,
+                  fecha : this.getHumanDate(fecha),
+                  type : type,
+                  description : description,
+                  url    : website,   
+                  timestamp: new Date(),
+                }
+            );             
+              })
+          });
+      },
     }
 }
 </script>

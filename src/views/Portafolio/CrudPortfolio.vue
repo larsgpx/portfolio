@@ -28,12 +28,8 @@
                             v-model="newProyect.type"
                     ></v-text-field>
               
-                    <v-file-input @change="onFileSelected" placeholder="Elige tu imagen" v-model="files" outlined label="File input" prepend-icon="mdi-clippy" dark></v-file-input>
-                    <template>
-                        <div>
-                            <img :src="this.picture" width="100%" alt="">
-                        </div>  
-                    </template>
+                    <!-- <v-file-input class="fileInput" @change="onFileSelected" placeholder="Elige tu imagen" outlined label="File input" prepend-icon="mdi-clippy"></v-file-input>                     -->
+                    <input type="file" @change="onFileSelected" class="fileInput">
                     <v-text-field                            
                             label="Descripción"
                             required
@@ -72,6 +68,7 @@ export default {
                 format: 'DD/MM/YYYY'               
             },
             newProyect:{
+                img: '',
                 name:'',
                 fecha: '',
                 type:'',
@@ -80,19 +77,28 @@ export default {
                 date:''
             },
             selectedFile: null,
-            UploadValue: 0,
-            picture:null
+            UploadValue: 0,            
                      
         }
     },  
     props:{
         list: Object,
-        addPort: Function   
+        addPort: Function        
     },
     methods: {            
         getHumanDate : function (date) {
             return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
-        }      
+        },
+        onFileSelected(event){
+            // this.$emit('on-file-selected', event)             
+            if(typeof event !== 'undefined'){            
+                console.log('selectFile name:'+event.target.files[0].name);
+                return this.selectedFile = event.target.files[0];                
+            }else{
+                console.log('onfileSelected, algo paso');
+            }
+            
+        }          
     }
  
 }
@@ -120,7 +126,19 @@ export default {
     color: white;
     }
 
-    ::placeholder {
+    ::placeholder,.mdi-clippy::before {
     color: white;
+    }
+    .theme--light.v-file-input .v-file-input__text{
+        color: white;
+    }
+    .fileInput{
+    height: 50px;
+    border: 1px solid #696161;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    margin: 0px 0px 20px 0px;
     }
 </style>
