@@ -47,14 +47,7 @@ import firebase from 'firebase';
     },
     methods: {
       addReptile: function() {
-        this.onUpload();
-        this.$firestore.reptiles.add(
-          {
-            name: this.newReptile,            
-            img: this.FullUrlImg,
-            timestamp: new Date()
-          }
-        );
+        this.onUpload(this.newReptile);      
         this.newReptile = '';                
       },
       deleteReptile: function(reptile) {
@@ -64,7 +57,7 @@ import firebase from 'firebase';
             console.log('onFileSelected: '+event.target.files[0].name)
             this.selectedFile = event.target.files[0]
         },
-      onUpload(){
+      onUpload(name){
           const storageRef = firebase.storage().ref(`/imgPortfolio/${this.selectedFile.name}`);
           const task = storageRef.put(this.selectedFile);
           task.on('state_changed',snapshot=>{
@@ -75,8 +68,14 @@ import firebase from 'firebase';
               //downloadUrl - para mostrar la imagen q se acaba de subir con todo y ruta
               task.snapshot.ref.getDownloadURL().then((url)=>{                
                 this.picture = url;
-                self.FullUrlImg = url;
-                console.log('picture: '+ url);                    
+                this.FullUrlImg = url;
+                this.$firestore.reptiles.add(
+                  {
+                    name: name,            
+                    img: this.FullUrlImg,
+                    timestamp: new Date()
+                  }
+                );
               })
           });
       },
