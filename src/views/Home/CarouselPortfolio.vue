@@ -1,12 +1,12 @@
 <template>
-   <v-container class="carousel-content">
+   <v-container class="carousel-content">          
         <div class="info-text">
             <h4 class="text-left">Algunos de los trabajos que he realizado!
-            <router-link class="btn-naranja" to="portafolio">
+            <!-- <router-link class="btn-naranja" to="portafolio">
                     <v-btn class="" fab dark small color="#FF8F00">
                         <v-icon dark>mdi-plus</v-icon>
                     </v-btn>                                                              
-            </router-link>    
+            </router-link>     -->
             </h4>  
                 
                 
@@ -21,8 +21,7 @@
         >
             <v-window v-model="onboarding">
             <v-window-item
-                v-for="n in length"
-                :key="`card-${n}`"
+                v-for="(port,index) in portafolios" :key="index"
             >
                 <v-card
                 color="transparent"                
@@ -40,43 +39,40 @@
                     <v-list-item three-line>
                     <v-list-item-content class="text-carousel">                        
                     <v-flex xs12 xl1 lg1 class="hidden-xs-only"></v-flex>
-                    <v-flex xs12 xl4 lg4>                            
-                            <div class="title mb-4">Overline</div>                        
-                            <v-list-item-subtitle class="sub">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi velit ipsum fugiat qui accusantium animi aliquid eaque doloremque optio, praesentium architecto repellat accusamus voluptates obcaecati voluptatibus iure amet quod odit.</v-list-item-subtitle>
-                            <div class="sub-title mb-4">Sub overline</div>                        
+                    <v-flex xs12 xl6 lg6>                            
+                            <div class="title mb-4">Descripción del proyecto</div>                        
+                            <v-list-item-subtitle class="sub">{{port.description}}</v-list-item-subtitle>
+                            <div class="sub-title mb-4">Detalles</div>                        
                             <v-list dense>
                                 <v-list-item>
                                     <v-list-item-content class="list-content-space-left">
                                         <v-icon class="start-icon">mdi-account</v-icon> 
                                         Cliente:</v-list-item-content>
-                                    <v-list-item-content class="align-end gray-light">contenido de prueba 1 32 3 brrrrrr</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">{{port.name}}</v-list-item-content>
                                 </v-list-item>
 
                                 <v-list-item>
                                     <v-list-item-content class="list-content-space-left">
                                         <v-icon class="start-icon">mdi-calendar</v-icon>
                                         Realizado el:</v-list-item-content>
-                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">{{ port.fecha }}</v-list-item-content>
                                 </v-list-item>
 
                                 <v-list-item>
                                     <v-list-item-content class="list-content-space-left">
                                         <v-icon class="start-icon">mdi-tag</v-icon>
                                         Tipo de proyecto:</v-list-item-content>
-                                    <v-list-item-content class="align-end gray-light">contenido</v-list-item-content>
+                                    <v-list-item-content class="align-end gray-light">{{port.type}}</v-list-item-content>
                                 </v-list-item>
                       
                             </v-list>
                     </v-flex>
-                    <v-flex xl2 lg2 class="hidden-xs-only"></v-flex>
-                    <v-flex xs12 xl5 lg5 class="hidden-xs-only">                        
+                    <v-flex xl1 lg1 class="hidden-xs-only"></v-flex>
+                    <v-flex xs12 xl4 lg4 class="hidden-xs-only">                        
                         <v-img
-                            :src="require('@/assets/tbs.png')"
-                            lazy-src="https://picsum.photos/id/11/10/6"
-                            aspect-ratio="1"
-                            class="img-rounded"
-                            max-width="500"
-                            max-height="300"
+                            :src="port.img"
+                            lazy-src="https://picsum.photos/id/11/10/6"                            
+                            class="img-rounded"                                                                                                            
                             >
                         </v-img>
                     </v-flex>
@@ -109,8 +105,7 @@
                 mandatory
             >
                 <v-item
-                v-for="n in length"
-                :key="`btn-${n}`"
+                v-for="(port,index) in portafolios.length" :key="index"
                 v-slot:default="{ active, toggle }"
                 >
                 <v-btn
@@ -133,14 +128,21 @@
    </v-container>
 </template>
 <script>
+import Firebase, { storage } from 'firebase';
+import { db } from '../../Firestore'; 
    export default {
-    data: () => ({
-      length: 3,
+    data: () => ({      
       window: 0,
-      showArrows: true,     
+      showArrows: false,     
       autorun: true,
-      onboarding: 0 
+      onboarding: 0,
+      portafolios: [] 
     }),
+     firestore() {
+      return {
+        portafolios: db.collection('Portafolios'),
+      }
+    },
     methods: {
       next () {
         this.onboarding = this.onboarding + 1 === this.length
@@ -215,7 +217,14 @@
       display:none!important;
       
   }
-
+.text-carousel{
+    .title{
+        margin-top:0px;
+    }
+    .sub{
+        min-height:150px;
+    }
+}
 }
   </style>
   

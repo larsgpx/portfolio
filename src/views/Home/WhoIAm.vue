@@ -9,7 +9,7 @@
             <v-flex xs12 xl9 lg9 row>
                 <v-flex class="info-text" xs12 lg7 xl7>
                     <h4 class="text-left">Sobre mí</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque cupiditate, dolor saepe eligendi accusantium eveniet magnam neque placeat aperiam? Labore inventore qui iure quas quibusdam pariatur maiores minus consectetur sunt?</p>     
+                    <p>Ingeniero informático con mas de 2 años en conocimiento a nivel FrontEnd y desarrollo de aplicaciones web basados en el lenguaje PHP haciendo uso de frameworks modernos como Laravel para el backend y Vue JS  para el Front End Bajo estandares UX/UI y con alta experiencia en desarrollo de aplicaciones web usando frameworks de maquetado como Bootstrap 3+, Vuetify, Material Design, ES6, Html5 y css3 con preprocesadores Sass. Uso de metodologías agiles SCRUM.</p>     
                 </v-flex>
                 <v-flex class="info-text" xs12 lg5 xl5>
                     <v-card class="bg-trans">
@@ -26,7 +26,7 @@
 
                 <v-list-item>
                   <v-list-item-content class="titles">Teléfono:</v-list-item-content>
-                  <v-list-item-content class="align-end">955 549 584</v-list-item-content>
+                  <v-list-item-content class="align-end">+51 955 549 584</v-list-item-content>
                 </v-list-item>
                 
               </v-list>
@@ -58,7 +58,7 @@
                         </v-expansion-panel-header>
                                  
                         <v-expansion-panel-content flat>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Hoy en dia, un buen diseño es lo que te hará resaltar sobre el resto, en mi rama, un buen desarrollo junto a un diseño lo es todo! Siempre pensando en que manera poder transmitir un buen manejo de UX y que este llegue a todo tipo de usuarios de una manera sencilla y en pocos pasos.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                      <!-- prototipado -->
@@ -70,7 +70,7 @@
                         </v-expansion-panel-header>
                                  
                         <v-expansion-panel-content flat>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            El prototipo es una representación interactiva de un sitio web. No es necesario que todo esté estructurado de forma definitiva. Pero sí debes conocer y tener presentes los elementos clave para mostrar el funcionamiento a tus clientes. Siempre que uso esta metodología estudio la audiencia para asi en base a eso, poder encontrar la estructura apropiada para poder transmitir lo que el cliente quiere.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                     <!-- paginas web -->
@@ -82,7 +82,7 @@
                         </v-expansion-panel-header>
                                  
                         <v-expansion-panel-content flat>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            El desarrollo de paginas web pueden servir de muchas formas, para poder transmitir una idea, para tener a la mano una herramienta en todas partes que vayas. Las paginas web deben ser el centro de cualquier estrategia online. Son mi pasión y siempre que desarrollo una nueva intento innovar en algo que las diferencie del resto.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
 
@@ -93,7 +93,7 @@
                             </template>
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Las apps son el futuro, actualmente se pueden ofrecer apps multiplataformas.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>

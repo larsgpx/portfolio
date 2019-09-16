@@ -32,7 +32,13 @@ export default new Router({
       path: "/test",
       name: "test",      
       component: () =>
-        import(/* webpackChunkName: "contact" */ "./views/TestingFirebase.vue")
+        import(/* webpackChunkName: "test" */ "./views/TestingFirebase.vue")
+    },
+    {
+      path: "/login",
+      name: "login",      
+      component: () =>
+        import(/* webpackChunkName: "login" */ "./views/Portafolio/Login.vue")
     }
 
   ]

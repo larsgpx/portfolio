@@ -80,7 +80,7 @@ export default {
             UploadValue: 0,            
                      
         }
-    },  
+    },      
     props:{
         list: Object,
         addPort: Function        
