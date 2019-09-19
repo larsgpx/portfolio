@@ -67,7 +67,7 @@
                     <p class="type-experience">OTROS</p>
                     <v-list class="bg-trans" dense>
                         
-                        <list-rating title="DISEÑO PROTOTIPOS" :rating="4"></list-rating>
+                        <list-rating title="PROTOTIPADO" :rating="4"></list-rating>
                         <list-rating title="SEO" :rating="4"></list-rating>
                         <list-rating title="DISEÑO WEB" :rating="5"></list-rating>                                            
                 

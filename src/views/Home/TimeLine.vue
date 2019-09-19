@@ -12,6 +12,11 @@
         small        
         :right="isMobile() ? true:false"
         >
+        <template v-slot:icon>
+        <v-avatar>
+          <img :src="require('../../../img/'+year.avatar)">
+        </v-avatar>
+      </template>
         <template v-slot:opposite>
             <span
             class="headline font-weight-bold"
@@ -19,9 +24,9 @@
             ></span>
         </template>
         <v-card class="elevation-2">
-            <v-card-title class="headline">Lorem ipsum</v-card-title>
+            <v-card-title class="headline">{{year.title}}</v-card-title>
             <v-card-text>
-            Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+            <p class="text-left list-style" v-html="year.descripcion"></p>
             </v-card-text>
         </v-card>      
         </v-timeline-item>
@@ -37,23 +42,65 @@ export default {
       years: [
         {
           color: '#42b983',
-          year: '1960',
+          year: '2019',
+          title: 'Wunderman Thompson',
+          descripcion:'Programador Front-end en el area de movistar con Full REST API,Grunt/Gulp y pre procesadores (Pug, Stylus, Sass)',
+          avatar: 'wunderman-logo.jpg'
         },
         {
           color: '#00e5ff',
-          year: '1970',
+          year: '2019',
+          title: 'Fabrik perú',
+          descripcion:`<ul>
+                          <li>Desarrollo de paginas web responsiva y  administrables con PHP, Pre procesador Sass, Bootstrap 4, Javascript, Jquery, Laravel y VUEJS 2.</li>
+                          <li>Sistemas web SPA con Vuejs + Laravel optimizadas con consumo de web services (SOAP/REST).</li>
+                          <li>Paginas web empresariales desarrolladas en Wordpress y prestashop.</li>
+                          <li>Optimizacion SEO y administracion SEM.</li>
+                      </ul>`,
+          avatar: 'fabrik.png'
+        },
+         {
+          color: '#455a64',
+          year: '2019',
+          title: 'Brandteam - (Freelance)',
+          descripcion:`<ul>
+                        <li>Desarrollo de paginas web responsiva y  administrables con PHP, Pre procesador Sass, Bootstrap 4, Javascript, Jquery y VUEJS 2.</li>
+                        <li>Pagina web administrable para instituo financiero líder en el sector de microfinanzas CONFIANZA.PE. </li>
+                        <li> Pagina web administrable al 100% para web interna de Brandteam.</li>
+                        <li> Pagina web de presentacion de empresa + blog empresarial con wordpress.</li>
+                      </ul>`,
+          avatar: 'brandteam.jpg'
         },
         {
           color: '#455a64',
-          year: '1980',
+          year: '2017',
+          title: 'ASES Digitales',
+          descripcion:`<ul>
+                      <li> Desarrollo de paginas web responsiva y  administrables con Laravel, Pre procesador Sass, Bootstrap 4, Javascript, Jquery.</li>
+                      <li>Pagina web administrable para empresa de cacao originpartner.com.pe</li>
+                      <li> Pagina web administrable al 100% con modulos de pago CULQI.</li>
+                      </ul>`,
+          avatar: 'ases.png'
         },
         {
           color: '#FF8F00',
-          year: '1990',
+          year: '2017',
+          title: 'JSJ Consultores Informaticos S.A.C.',
+          descripcion:'Desarrollo de aplicación web con PHP, Ajax, Javascript, Jquery para facturador electrónico con todas las validaciones requeridas por la SUNAT.',
+          avatar: 'jsj.jpg'
         },
         {
           color: '#40ba64',
-          year: '2000',
+          year: '2016',
+          title: 'Facilcloud',
+          descripcion:`
+                        <ul>
+                            <li>Manejo de privilegios y configuracion de S.O (Linux y Windows).</li>
+                            <li>Automatización de procesos y tareas bajo Scripts Bash y PowerShell en servidores. </li>
+                            <li>Manejo y optimización de SEO en sitios web. </li>
+                            <li>Optimizar el proceso de desarrollo para poder reducir los tiempos de paso a producción, de entrega al cliente.</li>
+                        </ul>`,
+          avatar: 'facilcloud.png'
         },
       ],
     }),
@@ -76,3 +123,10 @@ export default {
     }
   }
 </script>
+<style lang="scss">
+  .list-style{
+    li{
+      list-style:none;
+    }
+  }
+</style>
