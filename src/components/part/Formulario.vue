@@ -48,7 +48,7 @@
                         :loading="isLoading"
                         :disabled="isLoading"               
                     >
-                        Enviar
+                        {{enviar}}
                     </v-btn>
                     
                 </v-form>
@@ -125,7 +125,8 @@ export default {
       message: null,
       formSubmitted: false,
       isLoading: false,
-      formInvalid: false      
+      formInvalid: false,
+      enviar: 'enviar' 
     }
   },
   mounted () {
@@ -152,6 +153,7 @@ export default {
           this.formSubmitted = true
           this.isLoading = false
           console.log('Excelente! tu correo ha sido enviado!', response)
+          this.enviar = 'enviado';
         }, (error) => {
           console.log('Error! Algo ha sucedido y no pudo enviarse el correo', error)
           this.isLoading = false
