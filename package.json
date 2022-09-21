@@ -22,7 +22,7 @@
     "vue-firestore": "^0.3.22",
     "vue-router": "^3.0.3",
     "vuefire": "^2.2.0-alpha.0",
-    "vuetify": "^2.0.4"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@enrian/vue-pikaday": "^1.0.4",
